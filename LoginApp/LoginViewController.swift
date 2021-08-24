@@ -20,6 +20,11 @@ class LoginViewController: UIViewController {
         welcomeVC.username = usernameTF.text
     }
     
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        usernameTF.text?.removeAll()
+        passwordTF.text?.removeAll()
+    }
+    
     @IBAction func promptingUsername() {
         showAlert(with: "Oops!", and: "Your username is \(username) 😉")
     }

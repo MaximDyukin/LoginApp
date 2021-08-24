@@ -93,6 +93,9 @@
                                 <rect key="frame" x="146.66666666666666" y="611" width="82" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Log out"/>
+                                <connections>
+                                    <segue destination="o0X-ad-VAO" kind="unwind" unwindAction="unwindFor:" id="afS-N5-kg8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, ... !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlB-jv-zhO">
                                 <rect key="frame" x="117.66666666666669" y="154" width="140" height="30"/>
@@ -124,6 +127,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ct-Vl-Awk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="o0X-ad-VAO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="827" y="75"/>
         </scene>
