@@ -15,6 +15,11 @@ class LoginViewController: UIViewController {
     private let username = "Name"
     private let password = "Password"
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.username = usernameTF.text
+    }
+    
     @IBAction func promptingUsername() {
         showAlert(with: "Oops!", and: "Your username is \(username) 😉")
     }
