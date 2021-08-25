@@ -9,9 +9,9 @@ import UIKit
 
 extension LoginViewController {
     
-    func showAlert(with title: String, and message: String) {
+    func showAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: handler)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
