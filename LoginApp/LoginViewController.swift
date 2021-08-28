@@ -15,21 +15,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private let username = "User"
     private let password = "Password"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        usernameTF.delegate = self
-        passwordTF.delegate = self
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.username = usernameTF.text
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
+        welcomeVC.username = usernameTF.text ?? ""
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -38,31 +26,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logining() {
-        if usernameTF.text == username && passwordTF.text == password {
-            // Я так и не понял что мне сюда написать, чтобы этот метод срабатывал при нажатии на Done
-        } else {
-            showAlert(title: "Invalid login or password", message: "Please enter correct login and password")
+        if usernameTF.text != username || passwordTF.text != password {
+            showAlert(
+                title: "Invalid login or password",
+                message: "Please enter correct login and password"
+            )
         }
     }
     
-    @IBAction func promptingUsername() {
-        showAlert(title: "Oops!", message: "Your username is \(username) 😉")
+    @IBAction func forgotRegisterData(_ sender: UIButton) {
+        sender.tag == 0
+            ? showAlert(title: "Oops!", message: "Your username is \(username) 😉")
+            : showAlert(title: "Oops!", message: "Your password is \(password) 😉")
     }
-    
-    @IBAction func promptingPassword() {
-        showAlert(title: "Oops!", message: "Your password is \(password) 😉")
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if usernameTF.isFirstResponder {
-            passwordTF.becomeFirstResponder()
-        } else if passwordTF.isFirstResponder {
-            logining()
-        }
-        return true
-    }
-    
+}
+
+extension LoginViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -70,5 +49,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+}
+
+extension LoginViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if usernameTF.isFirstResponder {
+            passwordTF.becomeFirstResponder()
+        } else {
+            logining()
+            performSegue(withIdentifier: "showWelcomeVC", sender: nil)
+        }
+        return true
     }
 }
