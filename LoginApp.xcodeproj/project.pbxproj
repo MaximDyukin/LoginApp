@@ -15,6 +15,7 @@
 		EE0D1F7026D51DD000A61690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE0D1F6E26D51DD000A61690 /* LaunchScreen.storyboard */; };
 		EE0D1F7826D5371000A61690 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D1F7726D5371000A61690 /* WelcomeViewController.swift */; };
 		EECDFF9B26DC2A6000600754 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECDFF9A26DC2A6000600754 /* PersonData.swift */; };
+		EECDFF9D26DC2FE300600754 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECDFF9C26DC2FE300600754 /* AboutMeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EE0D1F7126D51DD000A61690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE0D1F7726D5371000A61690 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		EECDFF9A26DC2A6000600754 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
+		EECDFF9C26DC2FE300600754 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				EE0D1F6726D51DD000A61690 /* LoginViewController.swift */,
 				EE0D1F7726D5371000A61690 /* WelcomeViewController.swift */,
+				EECDFF9C26DC2FE300600754 /* AboutMeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				EE0D1F7826D5371000A61690 /* WelcomeViewController.swift in Sources */,
 				EE0D1F6426D51DD000A61690 /* AppDelegate.swift in Sources */,
 				EECDFF9B26DC2A6000600754 /* PersonData.swift in Sources */,
+				EECDFF9D26DC2FE300600754 /* AboutMeViewController.swift in Sources */,
 				EE0D1F6626D51DD000A61690 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
