@@ -118,7 +118,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i0N-8a-Zuc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="hlm-CX-o9N" firstAttribute="top" secondItem="jlB-jv-zhO" secondAttribute="bottom" constant="20" id="EWA-0o-5lg"/>
                             <constraint firstItem="jlB-jv-zhO" firstAttribute="top" secondItem="i0N-8a-Zuc" secondAttribute="top" constant="130" id="NH6-AH-5s2"/>
@@ -140,9 +140,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
