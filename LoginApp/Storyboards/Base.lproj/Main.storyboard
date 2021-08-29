@@ -148,9 +148,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOr-6R-7dU">
-                                <rect key="frame" x="129" y="467" width="62" height="36"/>
+                                <rect key="frame" x="134" y="467" width="52" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Photos"/>
+                                <state key="normal" title="Photo"/>
                                 <connections>
                                     <segue destination="1ys-By-dg3" kind="show" id="Sfg-3O-uxZ"/>
                                 </connections>
@@ -214,14 +214,27 @@
                     <view key="view" contentMode="scaleToFill" id="fV7-dY-5Mn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-j9-QxO">
+                                <rect key="frame" x="22.5" y="64" width="275" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8kD-j9-QxO" secondAttribute="height" multiplier="1:1" id="ldq-WX-2LV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5VG-9T-bac"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="8kD-j9-QxO" firstAttribute="top" secondItem="5VG-9T-bac" secondAttribute="top" constant="20" id="8y2-RZ-mVc"/>
+                            <constraint firstItem="8kD-j9-QxO" firstAttribute="width" secondItem="fV7-dY-5Mn" secondAttribute="width" multiplier="0.859375" id="VM8-RD-lD4"/>
+                            <constraint firstItem="8kD-j9-QxO" firstAttribute="centerX" secondItem="fV7-dY-5Mn" secondAttribute="centerX" id="vkR-a8-23R"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="df9-28-jd8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAq-Oj-pdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3623" y="75"/>
+            <point key="canvasLocation" x="3622.5" y="75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NUw-b2-6cT">
@@ -264,6 +277,7 @@
     </scenes>
     <resources>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="me" width="1223" height="1223"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
