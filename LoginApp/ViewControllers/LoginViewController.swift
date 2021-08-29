@@ -12,12 +12,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    private let username = "User"
-    private let password = "Password"
+    private let user = User()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.username = usernameTF.text ?? ""
+        
+        let tabBarController = segue.destination as! UITabBarController
+        guard let viewControllers = tabBarController.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.username = "\(user.person.firstName) \(user.person.lastName)"
+            } else if let navigationVC = viewController as? UINavigationController {
+                let aboutMeVC = navigationVC.topViewController as! AboutMeViewController
+                aboutMeVC.title = "\(user.person.firstName) \(user.person.lastName)"
+                aboutMeVC.firstName = user.person.firstName
+                aboutMeVC.lastName = user.person.lastName
+                aboutMeVC.age = user.person.age
+                aboutMeVC.aboutMe = user.person.aboutMe
+            }
+        }
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -26,7 +39,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logining() {
-        if usernameTF.text != username || passwordTF.text != password {
+        if usernameTF.text != user.username || passwordTF.text != user.password {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please enter correct login and password"
@@ -36,8 +49,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(title: "Oops!", message: "Your username is \(username) 😉")
-            : showAlert(title: "Oops!", message: "Your password is \(password) 😉")
+            ? showAlert(title: "Oops!", message: "Your username is \(user.username) 😉")
+            : showAlert(title: "Oops!", message: "Your password is \(user.password) 😉")
     }
 }
 
