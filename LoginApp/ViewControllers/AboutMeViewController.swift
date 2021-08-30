@@ -14,17 +14,15 @@ class AboutMeViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var aboutMeLabel: UILabel!
     
-    var firstName = ""
-    var lastName = ""
-    var age = ""
-    var aboutMe = ""
+    var user = User.getUsers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstNameLabel.text = "First name: \(firstName)"
-        lastNameLabel.text = "Last name: \(lastName)"
-        ageLabel.text = "Age: \(age)"
-        aboutMeLabel.text = "About me: \(aboutMe)"
+        title = "\(user.person.firstName) \(user.person.lastName)"
+        firstNameLabel.text = "First name: \(user.person.firstName)"
+        lastNameLabel.text = "Last name: \(user.person.lastName)"
+        ageLabel.text = "Age: \(user.person.age)"
+        aboutMeLabel.text = "About me: \(user.person.aboutMe)"
     }
 }

@@ -12,7 +12,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    private let user = User()
+    private let users = User.getUsers()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -21,14 +21,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.username = "\(user.person.firstName) \(user.person.lastName)"
+                welcomeVC.user = users
             } else if let navigationVC = viewController as? UINavigationController {
                 let aboutMeVC = navigationVC.topViewController as! AboutMeViewController
-                aboutMeVC.title = "\(user.person.firstName) \(user.person.lastName)"
-                aboutMeVC.firstName = user.person.firstName
-                aboutMeVC.lastName = user.person.lastName
-                aboutMeVC.age = user.person.age
-                aboutMeVC.aboutMe = user.person.aboutMe
+                aboutMeVC.user = users
             }
         }
     }
@@ -39,7 +35,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logining() {
-        if usernameTF.text != user.username || passwordTF.text != user.password {
+        if usernameTF.text != users.username || passwordTF.text != users.password {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please enter correct login and password"
@@ -49,8 +45,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(title: "Oops!", message: "Your username is \(user.username) 😉")
-            : showAlert(title: "Oops!", message: "Your password is \(user.password) 😉")
+            ? showAlert(title: "Oops!", message: "Your username is \(users.username) 😉")
+            : showAlert(title: "Oops!", message: "Your password is \(users.password) 😉")
     }
 }
 
