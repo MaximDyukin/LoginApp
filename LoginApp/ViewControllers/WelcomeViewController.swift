@@ -11,7 +11,7 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     
-    var user = User.getUsers()
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()

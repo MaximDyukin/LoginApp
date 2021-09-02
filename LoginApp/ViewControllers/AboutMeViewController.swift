@@ -14,7 +14,7 @@ class AboutMeViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var aboutMeLabel: UILabel!
     
-    var user = User.getUsers()
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
